@@ -5,6 +5,9 @@
     
 * @description {Create a method to show if the following key exists or not }
 */
+
+// "use strict";
+
 console.log("hey");
 const book = {
   bookName: "Atomic Habits",
@@ -34,4 +37,27 @@ if (hasKey) {
   console.log("The key exists.");
 } else {
   console.log("The key does not exist.");
+}
+// const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
+// has.call(obj_map, "key");
+
+/* -  Create an object and apply object immutable properties over them.
+    So if someone try to perform create , update , delete, the following
+    action should get logged
+    For example , timestamp, action and object name should get logged on
+    local-storage or though memoization
+*/
+const obj = {
+  bookName: "Atomic",
+  authorName: " clear",
+};
+console.log(obj);
+console.log(obj.constructor.name);
+if (obj && obj.constructor.name === "Object") {
+  console.log("Before freeze", obj);
+  Object.freeze(obj);
+  obj.Name = "arun";
+  console.log("After freeze", obj);
+} else {
+  console.log("The obj does not exist.");
 }
